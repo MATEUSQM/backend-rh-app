@@ -22,6 +22,15 @@ app.get('/api/get', (req, res) =>{
     })
 })
 
+app.delete('/api/delete/:name', (req, res) => {
+    const name = req.params.name
+    const sqlDelete = "DELETE FROM table_teste WHERE name = ?";
+
+    db.query(sqlDelete, name, (err, result) => {
+        console.log(result)
+    })
+})
+
 app.post('/api/insert', (req,res) =>{
 
     const name = req.body.nameV
